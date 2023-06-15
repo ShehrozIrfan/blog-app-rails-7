@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   # get '/blog_posts/new', to: "blog_posts#new", as: :new_blog_post
   # get '/blog_posts/:id', to: "blog_posts#show", as: :blog_post
   # get 'blog_posts/:id/edit', to: "blog_posts#edit", as: :edit_blog_post
