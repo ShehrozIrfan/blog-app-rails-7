@@ -5,8 +5,8 @@
 
 <% if user_signed_in? %>
   <div>
-  <%= link_to 'Edit', edit_blog_post_path(@blog_post.id) %>
+  <%= link_to 'Edit', edit_blog_post_path(@blog_post.id), class: "bg-yellow-400 px-4 py-2 rounded hover:bg-yellow-600" %>
   <br/><br/>
-  <%= button_to 'Delete', @blog_post, method: :delete, data: {turbo_confirm: "Are you sure to delete this blog post?" } %>
+  <%= button_to 'Delete', @blog_post, method: :delete, data: {turbo_confirm: "Are you sure to delete this blog post?" }, class: "bg-red-600 px-4 py-2 rounded hover:bg-red-700" %>
   </div>
 <% end %>
