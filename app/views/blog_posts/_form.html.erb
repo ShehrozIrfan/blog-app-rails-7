@@ -14,5 +14,10 @@
     <%= f.text_area :body %>
   </div>
 
+  <div>
+    <%= f.label :published_at %>
+    <%= f.datetime_select :published_at, include_blank: true %>
+  </div>
+
   <div><span class="bg-blue-400 px-4 py-2 rounded hover:bg-blue-600"><%= f.submit %></span></div>
 <% end %>
