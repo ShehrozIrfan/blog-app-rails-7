@@ -9,6 +9,24 @@
     <%= f.text_field :title %>
   </div>
 
+  <% if @blog_post.cover_image.present? %>
+    <% # dom_id generates the id so that we an remove the element with this id using the turbo from the controller, you can inspect in the browser developers tools to see the generated id. %>
+    <div id="<%= dom_id(@blog_post, :cover_image) %>">
+      <div>
+      <%= image_tag @blog_post.cover_image, class: 'w-1/3' %>
+      </div>
+
+      <div>
+        <%= link_to 'Remove cover image', blog_post_cover_image_path(@blog_post), data: { turbo_method: :delete, turbo_confirm: "Are you sure to delete this cover image?"} %>
+      </div>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.label :cover_image %>
+    <%= f.file_field :cover_image %>
+  </div>
+
   <div>
     <%= f.label :content %>
     <%= f.rich_text_area :content %>

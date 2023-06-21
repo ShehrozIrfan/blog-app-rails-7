@@ -8,6 +8,9 @@
     <% elsif blog.scheduled? %>
       <div class="p-2 rounded bg-blue-100 text-blue-900">Scheduled</div>
     <% end %>
+    <div>
+      <%= image_tag blog_post.cover_image if blog.cover_image.present? %>
+    </div>
     <p><%= blog.content %></p>
   </div>
 <% end %>
