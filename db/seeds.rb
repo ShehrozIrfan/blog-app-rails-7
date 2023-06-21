@@ -11,3 +11,7 @@ user.update!(
   password: "test1234",
   password_confirmation: "test1234"
 )
+
+# 100.times do |i|
+#   BlogPost.create(title: "Blog Post #{i}", content: "Hello World", published_at: nil)
+# end
