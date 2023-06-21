@@ -9,6 +9,21 @@
     <%= f.text_field :title %>
   </div>
 
+  <% if @blog_post.cover_image.present? %>
+    <div>
+      <%= image_tag @blog_post.cover_image %>
+    </div>
+
+    <div>
+      <%= link_to 'Remove cover image', blog_post_cover_image_path(@blog_post), data: { turbo_method: :delete, turbo_confirm: "Are you sure to delete this cover image? and all the other changes won't get saved"} %>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.label :cover_image %>
+    <%= f.file_field :cover_image %>
+  </div>
+
   <div>
     <%= f.label :content %>
     <%= f.rich_text_area :content %>

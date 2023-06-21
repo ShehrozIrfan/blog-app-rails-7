@@ -1,6 +1,9 @@
 <h1>Show Blog Post</h1>
 
 <h3><%= @blog_post.title %></h3>
+<div>
+  <%= image_tag @blog_post.cover_image if @blog_post.cover_image.present? %>
+</div>
 <p><%= @blog_post.content %></p>
 
 <% if user_signed_in? %>
