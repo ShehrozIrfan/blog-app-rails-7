@@ -1,10 +1,18 @@
 class BlogPosts::CoverImagesController < ApplicationController
+  # the dom_id is not available here, so we need to include it
+  include ActionView::RecordIdentifier
+
   before_action :set_blog_post
   before_action :authenticate_user!
 
   def destroy
     @blog_post.cover_image.purge_later
-    redirect_to blog_post_path(@blog_post)
+    # as we need to remove the id using the turbo, we need to make our controller action respond to turbo_stream
+    respond_to do |format|
+      format.html { redirect_to blog_post_path(@blog_post) }
+      format.turbo_stream { render turbo_stream: turbo_stream.remove(dom_id(@blog_post, :cover_image)) }
+    end
+
   end
 
   private
